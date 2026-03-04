@@ -1,0 +1,49 @@
+# General editor/OS files
+.vscode/
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.env
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code temp files
+*.code-workspace
+
+# Vivado / Xilinx generated files
+**/.Xil/
+**/*.jou
+**/*.str
+**/*.wdb
+**/*.wcfg
+
+# Vivado run/synthesis/impl directories (large generated content)
+BioEdge_Hardware/**/runs/
+BioEdge_Hardware.sim/
+
+# Hardware build output inside project repo
+BioEdge_Project/hardware/vivado_build/
+
+# Large dataset files (keep only locally)
+BioEdge_Project/data/*.fna.gz
+BioEdge_Project/data/*.txt.gz
+
+
+# Node / other common
+node_modules/
+
+# Misc
+*.bak
+*.old
+~$*
