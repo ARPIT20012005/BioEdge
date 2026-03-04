@@ -7,6 +7,10 @@ BioEdge is a hardware–software project that combines an FPGA-based accelerator
 
 > Note: Large raw datasets are **not** stored in this repository (they are ignored via `.gitignore`). See the Data section below for guidance.
 
+The overall system architecture is shown below:
+
+![BioEdge system architecture](BioEdge_Project/docs/images/bioedge_system_architecture.png)
+
 ## Repository structure
 
 - **BioEdge_Hardware/**
@@ -41,6 +45,10 @@ Typical workflow:
    - **File → Open Project** and select `BioEdge_Hardware/BioEdge_Hardware.xpr`.
 2. Synthesize and implement the design.
 3. Generate bitstream and program the target board (e.g. Arty A7-35T) using the provided constraint file.
+
+An example prototype setup of the FPGA board and display is shown below:
+
+![BioEdge prototype hardware](BioEdge_Project/docs/images/bioedge_hardware_setup.jpg)
 
 ## Software and training
 
