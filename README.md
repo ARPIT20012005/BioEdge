@@ -9,7 +9,7 @@ BioEdge is a hardware–software project that combines an FPGA-based accelerator
 
 The overall system architecture is shown below:
 
-![BioEdge system architecture](BioEdge_Project/docs/images/Screenshot 2026-03-09 223021.png)
+![BioEdge system architecture](BioEdge_Project/docs/images/architeture_diagram.png)
 
 ## Repository structure
 
