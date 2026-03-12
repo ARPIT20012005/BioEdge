@@ -9,19 +9,22 @@
 
 ![BioEdge prototype hardware](BioEdge_Project/docs/images/bioedge_hardware_setup.jpg)
 
-
 ---
 
-## 🧬 The Problem & Our Solution
+## 🧬 The Problem 
 
-### The Clinical Challenge
-Every day, DNA mutations occur in the human body. While many are benign, specific pathogenic mutations can trigger severe diseases like cancer. Currently, hospitals rely on cloud-based bioinformatics pipelines to sequence and analyze these mutations. This approach creates two major problems:
-1. **Severe Time Delays:** Traditional software processing takes weeks, delaying life-saving treatments.
-2. **Data Privacy Risks:** Uploading highly sensitive patient genomic data to cloud servers exposes hospitals to massive cybersecurity and HIPAA compliance risks.
+* DNA mutations occur naturally in every human body every single day.
+* Certain mutation changes can cause serious diseases like cancer.
+* It is very difficult to identify mutations and difficult to know which change is harmless or dangerous.
+* Doctors often face challenges in predicting the cause of disease and diagnosis.
+* **Quick analysis and identification is required** for better early detection for preventive and early detection of disease.
 
-### The BioEdge Solution
-BioEdge solves this by moving the entire diagnostic pipeline to the **"Edge"**. 
-Instead of sending data to the cloud, BioEdge uses a custom-built hardware accelerator (FPGA) paired with a local microcontroller (STM32) to process genomic data right at the doctor's desk. It achieves 100% offline patient privacy while slashing diagnostic wait times from weeks to milliseconds.
+## 💡 The BioEdge Solution
+
+* **Instant Mutation Analysis:** Helps doctors to identify dangerous mutations immediately.
+* **Database Comparison:** By comparing patients' DNA sequences with the Public NIH (National Institute of Health) ClinVar database, early and quick diagnosis is possible.
+* **Hardware Architecture:** We proposed an **FPGA-based low power, zero latency**, and **completely offline solution** for the detection of DNA sequence changes and diagnosis.
+* **Edge AI Integration:** We incorporated an **Artificial Intelligence 1D-CNN** model for the analysis of DNA directly on the FPGA Arty-A7.
 
 ---
 
@@ -29,17 +32,14 @@ Instead of sending data to the cloud, BioEdge uses a custom-built hardware accel
 
 BioEdge operates on a highly modular hardware-software co-design. The data flows seamlessly from raw DNA input to a clinical medical verdict:
 
-1. **Input Generation (The DNA Stream):** Genomic sequence data (A, C, T, G base pairs) is fed into the system, representing a patient's DNA mutations.
-2. **FPGA Processing (Arty A7-35T):** The "brain" of the system. We engineered a custom **Multiply-Accumulate (MAC) engine** in Verilog. This engine runs a quantized **1D-CNN Artificial Intelligence model** directly at the gate level, cross-referencing the DNA stream with hardcoded clinical weights (ClinVar) to calculate a Polygenic Risk Score instantly.
-3. **Zero-Latency Parallel Bus:** A custom-engineered, high-speed data bridge connects the FPGA processor directly to the display unit, ensuring no communication lag.
-4. **Actionable Output (STM32 Interface):** An STM32 microcontroller receives the raw binary risk score and translates it into an intuitive, color-coded TouchGFX dashboard. This gives doctors an immediate Low, Medium, or High-risk clinical verdict at the bedside.
+1. **Input Generation:** Genomic sequence data is fed into the system, representing a patient's DNA mutations.
+2. **FPGA Processing (Arty A7):** The custom Multiply-Accumulate (MAC) engine runs the quantized 1D-CNN model directly at the gate level, cross-referencing the DNA stream with hardcoded clinical weights.
+3. **Zero-Latency Parallel Bus:** A high-speed data bridge connects the FPGA processor directly to the display unit, ensuring no communication lag.
+4. **Actionable Output:** An STM32 microcontroller receives the raw binary risk score and translates it into an intuitive, color-coded dashboard, giving doctors an immediate clinical verdict.
+
 ![BioEdge system architecture](BioEdge_Project/docs/images/architeture_diagram.png)
 
----
-
 ## 📂 Repository Structure
-
-The workspace is cleanly divided into hardware design, software tooling, and documentation.
 
 ```text
 BioEdge/
